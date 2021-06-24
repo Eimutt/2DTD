@@ -28,7 +28,7 @@ public class Wave : MonoBehaviour
             {
                 if (waveEnemy.AttemptSpawn())
                 {
-                    Instantiate(waveEnemy.enemy);
+                    Instantiate(waveEnemy.enemy, transform);
                 }
             }
         }
