@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  hp: 0
-  targetDirection: {x: 0, y: 0, z: 0}
+  maxHp: 10
 --- !u!212 &7393506717305845341
 SpriteRenderer:
   m_ObjectHideFlags: 0

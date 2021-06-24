@@ -5,12 +5,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public float hp;
-    public Vector3 targetDirection;
+    public float maxHp;
+
+    public float currentHp;
+
+    private Vector3 targetDirection;
     // Start is called before the first frame update
     void Start()
     {
-        //targetDirection = Vector3.left;
+        currentHp = maxHp;
     }
 
     // Update is called once per frame
@@ -22,5 +25,20 @@ public class Enemy : MonoBehaviour
     public void SetTarget(GameObject nextTarget)
     {
         targetDirection = Vector3.Normalize(nextTarget.transform.position - gameObject.transform.position);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        if(currentHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        //Send Die Event(give out gold + update game state and such)
+        Destroy(gameObject);
     }
 }
