@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.1
-  maxHp: 400
+  maxHp: 100
   impactThreshold: 5
   damageModifier: 0
   m_MovementSmoothing: 0.05
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 5556427017819284583}
   m_Grounded: 0
   knockedBack: 0
+  knockbackStun: 1
 --- !u!70 &2588745472120289753
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

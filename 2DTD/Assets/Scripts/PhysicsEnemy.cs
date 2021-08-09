@@ -21,7 +21,7 @@ public class PhysicsEnemy : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
 
     public bool knockedBack;
-    private float knockbackStun = 0.4f;
+    public float knockbackStun = 0.4f;
     private float knockbackTimer;
 
     private void Awake()
