@@ -6,7 +6,8 @@ public enum TargetingMode
 {
     FIRST,
     LAST,
-    STRONG
+    STRONG,
+    ALL
 }
 
 public class Tower : MonoBehaviour
@@ -17,8 +18,8 @@ public class Tower : MonoBehaviour
     public float firerate;
     public GameObject bulletPrefab;
 
-    private float reloadTimer;
-    private bool reloading;
+    public float reloadTimer;
+    protected bool reloading;
 
     public List<GameObject> enemies;
 
@@ -29,7 +30,7 @@ public class Tower : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (!reloading)
         {
@@ -63,7 +64,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public virtual void Shoot()
     {
         GameObject target = null;
 

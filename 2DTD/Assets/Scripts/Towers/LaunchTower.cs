@@ -12,6 +12,8 @@ public class LaunchTower : MonoBehaviour
 
     public List<GameObject> enemies;
 
+    public Vector2 Angle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +59,7 @@ public class LaunchTower : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1) * strength);
+            enemy.GetComponent<Rigidbody2D>().AddForce(Angle.normalized * strength);
             enemy.GetComponent<PhysicsEnemy>().knockedBack = true;
         }
         reloading = true;
