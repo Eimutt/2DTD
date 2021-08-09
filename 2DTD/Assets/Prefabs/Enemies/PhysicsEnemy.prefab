@@ -148,8 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb5a103b016eaf468edc2813ba68b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
-  hp: 1
+  speed: -0.2
+  maxHp: 50
+  impactThreshold: 5
+  damageModifier: 0
   m_MovementSmoothing: 0.05
   m_WhatIsGround:
     serializedVersion: 2
@@ -171,5 +173,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_Direction: 0

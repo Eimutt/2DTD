@@ -5,7 +5,11 @@ using UnityEngine;
 public class PhysicsEnemy : MonoBehaviour
 {
     public float speed;
-    public float hp;
+    public int maxHp;
+    private int currentHp;
+    public float impactThreshold;
+    public float damageModifier;
+
     // Start is called before the first frame update
     private Rigidbody2D m_Rigidbody2D;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
@@ -27,7 +31,7 @@ public class PhysicsEnemy : MonoBehaviour
     }
     void Start()
     {
-        
+        currentHp = maxHp;
     }
 
     private void FixedUpdate()
@@ -67,6 +71,25 @@ public class PhysicsEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        hp -= damage;
+        currentHp -= damage;
+        print("currentHP : " + currentHp + " / " + maxHp);
+        if(currentHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        float impactSpeed = col.relativeVelocity.magnitude;
+        if(impactSpeed > impactThreshold)
+        {
+            TakeDamage((int)impactSpeed);
+        }
     }
 }
