@@ -10,19 +10,30 @@ public abstract class GenericWaveEnemy<T>
     public bool done;
     public float delay;
     private int count;
-    private float timer; 
+    private float timer;
+
+    private bool readyToSpawn = true;
     public bool AttemptSpawn()
     {
-        timer += Time.deltaTime;
-        if (timer > interval)
+        if (readyToSpawn)
         {
             count++;
             if (count == amount)
                 done = true;
-            timer = 0;
+            readyToSpawn = false;
             return true;
+        } else
+        {
+            timer += Time.deltaTime;
+            if (timer > interval)
+            {
+                readyToSpawn = true;
+                timer = 0;
+            }
         }
+
         return false;
+
     }
 }
 

@@ -24,7 +24,7 @@ public class Wave : MonoBehaviour
     {
         foreach (WaveEnemy waveEnemy in enemyDistribution.WaveEnemies)
         {
-            if (!waveEnemy.done)
+            if (!waveEnemy.done && waveDuration >= waveEnemy.delay)
             {
                 if (waveEnemy.AttemptSpawn())
                 {

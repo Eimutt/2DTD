@@ -95,11 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79abbf272837bc041bafefbd025342c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
-  strength: 1000
+  targetingMode: 3
+  range: 0
+  damage: 0
+  firerate: 3
+  bulletPrefab: {fileID: 0}
   reloadTimer: 0
-  reloading: 0
   enemies: []
+  strength: 1000
   Angle: {x: 1, y: 1}
 --- !u!58 &4833132367301080116
 CircleCollider2D:
